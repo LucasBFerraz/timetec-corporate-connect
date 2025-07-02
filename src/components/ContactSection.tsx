@@ -47,14 +47,14 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Telefone",
-      content: "(11) 9999-9999",
-      link: "tel:+5511999999999"
+      content: "(21) 98866-5393",
+      link: "tel:+5521988665393"
     },
     {
       icon: MessageSquare,
       title: "WhatsApp",
-      content: "(11) 9999-9999",
-      link: "https://wa.me/5511999999999"
+      content: "(21) 98866-5393",
+      link: "https://wa.me/5521988665393"
     },
     {
       icon: Mail,
@@ -65,7 +65,7 @@ const ContactSection = () => {
     {
       icon: MapPin,
       title: "Endereço",
-      content: "São Paulo - SP",
+      content: "Rio de Janeiro - RJ",
       link: "#"
     }
   ];
@@ -167,7 +167,7 @@ const ContactSection = () => {
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      placeholder="(11) 9999-9999"
+                      placeholder="(21) 98866-5393"
                       required
                       className="h-12"
                     />

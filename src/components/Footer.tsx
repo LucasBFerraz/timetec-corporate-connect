@@ -94,7 +94,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Phone className="h-5 w-5 text-timetec-red mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300">(11) 9999-9999</p>
+                  <p className="text-gray-300">(21) 98866-5393</p>
                   <p className="text-sm text-gray-400">Comercial</p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MessageSquare className="h-5 w-5 text-timetec-red mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300">(11) 9999-9999</p>
+                  <p className="text-gray-300">(21) 98866-5393</p>
                   <p className="text-sm text-gray-400">WhatsApp</p>
                 </div>
               </div>

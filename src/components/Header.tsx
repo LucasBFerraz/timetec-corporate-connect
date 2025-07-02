@@ -42,7 +42,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-timetec-gray">
               <Phone className="h-4 w-4" />
-              <span>(11) 9999-9999</span>
+              <span>(21) 98866-5393</span>
             </div>
             <Button className="timetec-gradient hover:opacity-90 transition-opacity">
               Solicitar Orçamento
@@ -77,7 +77,7 @@ const Header = () => {
               <div className="pt-4 border-t">
                 <div className="flex items-center space-x-2 text-sm text-timetec-gray mb-3">
                   <Phone className="h-4 w-4" />
-                  <span>(11) 9999-9999</span>
+                  <span>(21) 98866-5393</span>
                 </div>
                 <Button className="w-full timetec-gradient">
                   Solicitar Orçamento

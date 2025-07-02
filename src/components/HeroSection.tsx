@@ -48,7 +48,7 @@ const HeroSection = () => {
                 className="text-lg px-8 py-4 border-2 border-timetec-red text-timetec-red hover:bg-timetec-red hover:text-white transition-all duration-300"
               >
                 <Phone className="mr-2 h-5 w-5" />
-                (11) 9999-9999
+                (21) 98866-5393
               </Button>
             </div>
             
