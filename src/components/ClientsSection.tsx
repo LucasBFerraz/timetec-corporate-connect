@@ -8,37 +8,37 @@ const ClientsSection = () => {
       icon: Building2,
       title: "Escritórios e Consultorias",
       description: "Soluções para empresas de serviços que precisam de comunicação eficiente",
-      count: "150+"
+      // count: "150+"
     },
     {
       icon: Factory,
       title: "Indústrias",
       description: "Sistemas robustos para ambientes industriais e de produção",
-      count: "80+"
+      // count: "80+"
     },
     {
       icon: Hospital,
       title: "Hospitais e Clínicas",
-      description: "Comunicação crítica para unidades de saúde",
-      count: "45+"
+      description: "Comunicação crítica para unidades de saúde          ",
+      // count: "45+"
     },
     {
       icon: Briefcase,
       title: "Advocacias",
       description: "Confidencialidade e qualidade para escritórios de advocacia",
-      count: "120+"
+      // count: "120+"
     },
     {
       icon: Store,
       title: "Varejo e Comércio",
       description: "Soluções para redes de lojas e centros comerciais",
-      count: "90+"
+      // count: "90+"
     },
     {
       icon: Users,
       title: "Call Centers",
       description: "Equipamentos profissionais para centrais de atendimento",
-      count: "25+"
+      // count: "25+"
     }
   ];
 
@@ -71,7 +71,7 @@ const ClientsSection = () => {
                   </div>
                   <div className="text-right">
                     <div className="text-2xl font-bold text-white">{segment.count}</div>
-                    <div className="text-sm text-gray-400">clientes</div>
+                    {/* <div className="text-sm text-gray-400">clientes</div> */}
                   </div>
                 </div>
                 

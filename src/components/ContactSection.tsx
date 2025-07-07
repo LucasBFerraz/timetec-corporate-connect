@@ -167,7 +167,7 @@ const ContactSection = () => {
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      placeholder="(21) 98866-5393"
+                      placeholder="(21) 91234-5678"
                       required
                       className="h-12"
                     />

@@ -117,7 +117,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-timetec-red mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300">São Paulo - SP</p>
+                  <p className="text-gray-300">Rio de Janeiro - RJ</p>
                   <p className="text-sm text-gray-400">Brasil</p>
                 </div>
               </div>
@@ -139,15 +139,15 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
             <p>
-              © 2024 Timetec Telecom. Todos os direitos reservados.
+              © 2025 Timetec Telecom. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-timetec-red transition-colors duration-300">
+              {/* <a href="#" className="hover:text-timetec-red transition-colors duration-300">
                 Política de Privacidade
               </a>
               <a href="#" className="hover:text-timetec-red transition-colors duration-300">
                 Termos de Uso
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
