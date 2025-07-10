@@ -9,27 +9,27 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20.17.0
+          node-version: 20
+
+      - name: Set environment variables
+        run: |
+          echo "VITE_RECAPTCHA_SITE_KEY=${{ secrets.VITE_RECAPTCHA_SITE_KEY }}" >> .env
+          echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env
+          echo "VITE_WA_NUMBER=${{ secrets.VITE_WA_NUMBER }}" >> .env
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build
-        run: |
-          echo "VITE_RECAPTCHA_SITE_KEY=${{ secrets.VITE_RECAPTCHA_SITE_KEY }}" > .env
-          echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env
-          echo "VITE_WA_NUMBER=${{ secrets.VITE_WA_NUMBER }}" >> .env
-          npm run build
-
-      - name: Check for build errors
-        run: ls -la dist
+      - name: Build Vite app
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
