@@ -19,6 +19,9 @@ import {
   MessageSquare,
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import InputMask from 'react-input-mask';
+
+const wa_number = import.meta.env.VITE_WA_NUMBER;
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -49,6 +52,37 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const unformattedPhone = formData.phone.replace(/\D/g, '');
+
+    const validDDDs = [
+      '11','12','13','14','15','16','17','18','19',
+      '21','22','24','27','28','31','32','33','34','35','37','38',
+      '41','42','43','44','45','46','47','48','49',
+      '51','53','54','55','61','62','63','64','65','66','67',
+      '68','69','71','73','74','75','77','79','81','82','83',
+      '84','85','86','87','88','89','91','92','93','94','95','96','97','98','99'
+    ];
+
+    const ddd = unformattedPhone.slice(0, 2);
+
+    if (!/^\d{11}$/.test(unformattedPhone)) {
+      toast({
+        title: 'Telefone inválido',
+        description: 'Digite um número com DDD e 9 dígitos.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (!validDDDs.includes(ddd)) {
+      toast({
+        title: 'DDD inválido',
+        description: `O DDD "${ddd}" não é reconhecido como válido no Brasil.`,
+        variant: 'destructive',
+      });
+      return;
+    }
+
     if (!recaptchaReady || !window.grecaptcha) {
       toast({
         title: 'Erro',
@@ -64,18 +98,18 @@ const ContactSection = () => {
 
       const payload = {
         messaging_product: 'whatsapp',
-        to: '5521964896877',
+        to: wa_number,
         type: 'template',
         template: {
-          name: 'timetec',
-          language: { code: 'pt_BR' },
+          name: 'tmp_1',
+          language: { code: 'en' },
           components: [
             {
               type: 'body',
               parameters: [
                 { type: 'text', text: formData.name },
                 { type: 'text', text: formData.company },
-                { type: 'text', text: formData.phone },
+                { type: 'text', text: unformattedPhone },
                 { type: 'text', text: formData.email },
                 { type: 'text', text: formData.interest || '-' },
                 { type: 'text', text: formData.message || '-' },
@@ -86,13 +120,12 @@ const ContactSection = () => {
         captchaToken: token,
       };
 
-      const url = `https://graph.facebook.com/v22.0/${import.meta.env.VITE_WA_PHONE_ID}/messages`;
+      const url = import.meta.env.VITE_API_BASE_URL + '/send';
 
       const res = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${import.meta.env.VITE_WA_TOKEN}`,
         },
         body: JSON.stringify(payload),
       });
@@ -231,14 +264,21 @@ const ContactSection = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="phone">Telefone *</Label>
-                    <Input
-                      id="phone"
+                    <InputMask
+                      mask="(99) 99999-9999"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      required
-                      placeholder="(21) 91234-5678"
-                      className="h-12"
-                    />
+                    >
+                      {(inputProps: any) => (
+                        <Input
+                          {...inputProps}
+                          id="phone"
+                          required
+                          placeholder="(21) 91234-5678"
+                          className="h-12"
+                        />
+                      )}
+                    </InputMask>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">E-mail *</Label>
