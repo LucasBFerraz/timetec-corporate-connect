@@ -32,7 +32,9 @@ jobs:
         run: npm run build
 
       - name: Verify dist folder exists
-        run: ls -la ./dist
+        run: |
+          pwd 
+          ls -la ./dist
 
 
       - name: Deploy to GitHub Pages
