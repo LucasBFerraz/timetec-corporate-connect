@@ -29,6 +29,9 @@ jobs:
           npm run build
           ls -la dist
 
+      - name: Check for build errors
+        run: cat vite.config.js || true
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
