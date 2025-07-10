@@ -27,6 +27,7 @@ jobs:
           echo "VITE_API_BASE_URL=${{ secrets.VITE_API_BASE_URL }}" >> .env
           echo "VITE_WA_NUMBER=${{ secrets.VITE_WA_NUMBER }}" >> .env
           npm run build
+          ls -la dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
