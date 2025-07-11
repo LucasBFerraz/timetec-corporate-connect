@@ -131,6 +131,9 @@ const ContactSection = () => {
         body: JSON.stringify(payload),
         mode: 'cors',
         credentials: 'omit'
+      }).catch(err => {
+        console.error('Fetch error:', err);
+        throw err;
       });
 
       if (!res.ok) {
