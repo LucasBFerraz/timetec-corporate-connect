@@ -31,7 +31,14 @@ jobs:
         run: npm ci
 
       - name: Build Vite app
-        run: npm run build
+        run: |
+          npm run build
+          mkdir -p dist
+
+      - name: Verify dist directory
+        run: |
+          ls -la
+          ls -la dist/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
