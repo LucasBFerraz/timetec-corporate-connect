@@ -10,13 +10,20 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       '/api': {
-        target: 'https://oqtrql4t5vihznitemfxgjnnf40npbua.lambda-url.us-east-1.on.aws',
+        target: 'https://oqtrql4t5vihznitemfxgjnnf40npbua.lambda-url.us-east-1.on.aws/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type'
+        configure: (proxy, options) => {
+          proxy.on('proxyReq', (proxyReq, req, res) => {
+            if (req.method === 'OPTIONS') {
+              res.writeHead(200, {
+                'Access-Control-Allow-Origin': 'https://timetectelecom.com.br',
+                'Access-Control-Allow-Methods': 'POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type'
+              });
+              res.end();
+            }
+          });
         }
       }
     }
