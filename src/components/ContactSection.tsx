@@ -126,11 +126,24 @@ const ContactSection = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify(payload),
+        mode: 'cors',
+        credentials: 'omit'
       });
 
-      if (!res.ok) throw new Error(await res.text());
+      if (!res.ok) {
+        const errorText = await res.text();
+        console.error('API Error:', {
+          status: res.status,
+          statusText: res.statusText,
+          url: res.url,
+          headers: Object.fromEntries(res.headers.entries()),
+          error: errorText
+        });
+        throw new Error(errorText || `HTTP error! status: ${res.status}`);
+      }
 
       toast({
         title: 'Mensagem enviada!',

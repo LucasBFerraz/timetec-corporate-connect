@@ -12,7 +12,12 @@ export default defineConfig(({ mode }) => ({
       '/api': {
         target: 'https://oqtrql4t5vihznitemfxgjnnf40npbua.lambda-url.us-east-1.on.aws',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+        rewrite: (path) => path.replace(/^\/api/, ''),
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        }
       }
     }
   },
