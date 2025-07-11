@@ -120,7 +120,7 @@ const ContactSection = () => {
         captchaToken: token,
       };
 
-      const url = import.meta.env.VITE_API_BASE_URL + '/send';
+      const url = '/api/send'; // Will be proxied through Vite
 
       const res = await fetch(url, {
         method: 'POST',
