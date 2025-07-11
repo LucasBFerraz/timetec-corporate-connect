@@ -7,8 +7,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment: production
 
     steps:
       - name: Checkout code
@@ -18,6 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
+          cache: 'npm'
 
       - name: Set environment variables
         run: |
@@ -26,16 +28,10 @@ jobs:
           echo "VITE_WA_NUMBER=${{ secrets.VITE_WA_NUMBER }}" >> .env
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Vite app
         run: npm run build
-
-      - name: Verify dist folder exists
-        run: |
-          pwd 
-          ls -la ./dist
-
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -43,3 +39,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           cname: timetectelecom.com.br
+          keep_files: true
