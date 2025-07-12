@@ -33,6 +33,7 @@ const ContactSection = () => {
     interest: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [recaptchaReady, setRecaptchaReady] = useState(false);
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
@@ -51,7 +52,9 @@ const ContactSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    if (isSubmitting) return;
+    
+    setIsSubmitting(true);
     const unformattedPhone = formData.phone.replace(/\D/g, '');
 
     const validDDDs = [
@@ -162,11 +165,38 @@ const ContactSection = () => {
         message: '',
       });
     } catch (err: any) {
+      let errorMessage = 'Tente novamente mais tarde.';
+      let errorDetails = '';
+      
+      try {
+        const errorData = JSON.parse(err?.message);
+        if (errorData?.detail?.message?.includes('Failed reCAPTCHA verification')) {
+          errorMessage = 'Falha na verificação de segurança. Por favor, tente novamente.';
+          errorDetails = errorData.detail.message;
+        } else if (errorData?.detail?.message) {
+          errorDetails = errorData.detail.message;
+        }
+      } catch (e) {
+        errorDetails = err?.message || '';
+      }
+
       toast({
         title: 'Erro ao enviar',
-        description: err?.message ?? 'Tente novamente mais tarde.',
+        description: (
+          <div className="space-y-2">
+            <p>{errorMessage}</p>
+            {errorDetails && (
+              <details className="text-xs">
+                <summary className="cursor-pointer hover:underline">Detalhes do erro</summary>
+                <pre className="mt-1 p-2 bg-black/10 rounded overflow-x-auto">{errorDetails}</pre>
+              </details>
+            )}
+          </div>
+        ),
         variant: 'destructive',
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -345,10 +375,20 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   size="lg"
+                  disabled={isSubmitting}
                   className="w-full timetec-gradient text-lg py-6 hover:opacity-90 transition-opacity"
                 >
-                  <Send className="mr-2 h-5 w-5" />
-                  Enviar Mensagem
+                  {isSubmitting ? (
+                    <div className="flex items-center justify-center">
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      Enviando...
+                    </div>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-5 w-5" />
+                      Enviar Mensagem
+                    </>
+                  )}
                 </Button>
 
                 <p className="text-sm text-gray-500 text-center">

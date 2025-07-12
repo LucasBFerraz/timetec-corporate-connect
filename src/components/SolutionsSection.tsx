@@ -10,7 +10,7 @@ const SolutionsSection = () => {
       title: "Centrais PABX",
       subtitle: "Digitais e IP",
       description: "Centrais telefônicas modernas com recursos avançados para empresas de todos os portes.",
-      features: ["Até 500 ramais", "Gravação de chamadas", "Relatórios detalhados", "Interface web"],
+      features: ["Configuração de ramais", "Call center", "Gravação de chamadas", "Relatórios detalhados", "Interface web"],
       gradient: "from-red-500 to-red-600"
     },
     {
@@ -31,10 +31,10 @@ const SolutionsSection = () => {
     },
     {
       icon: Settings,
-      title: "Acessórios e Suporte",
+      title: "Suporte",
       subtitle: "Soluções Completas",
-      description: "Amplificadores, adaptadores e suporte técnico especializado para sua empresa.",
-      features: ["Instalação completa", "Treinamento", "Suporte 24/7", "Manutenção"],
+      description: "Suporte técnico especializado para sua empresa.",
+      features: ["Instalação completa", "Treinamento", "Manutenção"],
       gradient: "from-purple-500 to-purple-600"
     }
   ];
@@ -78,10 +78,10 @@ const SolutionsSection = () => {
                 ))}
               </ul>
               
-              <Button variant="outline" className="w-full group-hover:bg-timetec-red group-hover:text-white group-hover:border-timetec-red transition-all duration-300">
+              {/* <Button variant="outline" className="w-full group-hover:bg-timetec-red group-hover:text-white group-hover:border-timetec-red transition-all duration-300">
                 Saiba Mais
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              </Button> */}
             </div>
           ))}
         </div>
