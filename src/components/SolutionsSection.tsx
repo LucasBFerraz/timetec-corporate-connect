@@ -87,10 +87,10 @@ const SolutionsSection = () => {
         </div>
         
         <div className="text-center mt-12">
-          <Button size="lg" className="timetec-gradient text-lg px-8 py-4">
+          {/* <Button size="lg" className="timetec-gradient text-lg px-8 py-4">
             Ver Todos os Produtos
             <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          </Button> */}
         </div>
       </div>
     </section>

@@ -74,7 +74,7 @@ const HeroSection = () => {
                   {[
                     { icon: Phone, title: "PABX Digital", desc: "Centrais modernas" },
                     { icon: Zap, title: "Telefones IP", desc: "Tecnologia avançada" },
-                    { icon: Shield, title: "Suporte 24/7", desc: "Atendimento técnico" },
+                    { icon: Shield, title: "Suporte", desc: "Atendimento técnico" },
                     { icon: ArrowRight, title: "Instalação", desc: "Equipe especializada" }
                   ].map((item, index) => (
                     <div key={index} className="text-center p-4 hover-lift rounded-lg bg-gray-50">

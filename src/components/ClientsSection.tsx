@@ -88,7 +88,7 @@ const ClientsSection = () => {
         </div>
         
         {/* Testimonial section */}
-        <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-12 text-center border border-white/10">
+        {/* <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-12 text-center border border-white/10">
           <div className="max-w-4xl mx-auto">
             <div className="text-6xl text-timetec-red mb-6">"</div>
             <blockquote className="text-2xl font-medium text-white mb-8 leading-relaxed">
@@ -105,7 +105,7 @@ const ClientsSection = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

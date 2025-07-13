@@ -14,7 +14,7 @@ const BenefitsSection = () => {
     {
       icon: Wrench,
       title: "Suporte Técnico",
-      description: "Equipe técnica qualificada disponível 24/7 para instalação, configuração e manutenção dos equipamentos.",
+      description: "Equipe técnica qualificada disponível para instalação, configuração e manutenção dos equipamentos.",
       color: "text-blue-600",
       bgColor: "bg-blue-50"
     },

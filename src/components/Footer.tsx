@@ -20,9 +20,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' }
+    { icon: Facebook, href: 'https://www.facebook.com/timetectelecom', label: 'Facebook' },
+    // { icon: Instagram, href: '#', label: 'Instagram' },
+    // { icon: Linkedin, href: '#', label: 'LinkedIn' }
   ];
 
   return (
@@ -31,17 +31,23 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-bold text-white mb-4">
+            {/* <h3 className="text-2xl font-bold text-white mb-4">
               Timetec <span className="text-timetec-red">Telecom</span>
-            </h3>
+            </h3> */}
+            <div className="w-40">
+              <img src='timetec-logo.png'></img>
+              <br></br>
+            </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Especialistas em soluções de telecomunicações corporativas há mais de 15 anos. 
+              Especialistas em soluções de telecomunicações corporativas há mais de 15 anos.
               Tecnologia, qualidade e suporte que sua empresa precisa.
             </p>
-            
+
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <a
+                  target="_blank"
+                  rel="noopener noreferrer"
                   key={index}
                   href={social.href}
                   aria-label={social.label}
@@ -52,14 +58,14 @@ const Footer = () => {
               ))}
             </div>
           </div>
-          
+
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Links Rápidos</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
+                  <a
                     href={link.href}
                     className="text-gray-300 hover:text-timetec-red transition-colors duration-300"
                   >
@@ -69,14 +75,14 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          
+
           {/* Products */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Produtos e Serviços</h4>
             <ul className="space-y-3">
               {products.map((product, index) => (
                 <li key={index}>
-                  <a 
+                  <a
                     href={product.href}
                     className="text-gray-300 hover:text-timetec-red transition-colors duration-300"
                   >
@@ -86,7 +92,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          
+
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Contato</h4>
@@ -98,7 +104,7 @@ const Footer = () => {
                   <p className="text-sm text-gray-400">Comercial</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-3">
                 <MessageSquare className="h-5 w-5 text-timetec-red mt-1 flex-shrink-0" />
                 <div>
@@ -106,14 +112,14 @@ const Footer = () => {
                   <p className="text-sm text-gray-400">WhatsApp</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 text-timetec-red mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300">contato@timetectelecom.com.br</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-timetec-red mt-1 flex-shrink-0" />
                 <div>
@@ -121,7 +127,7 @@ const Footer = () => {
                   <p className="text-sm text-gray-400">Brasil</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-3">
                 <Clock className="h-5 w-5 text-timetec-red mt-1 flex-shrink-0" />
                 <div>
@@ -133,7 +139,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-6">
